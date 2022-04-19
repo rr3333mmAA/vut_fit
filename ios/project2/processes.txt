@@ -16,4 +16,13 @@ Oxygen process:
         9. If not enough hydrogen is already available (nor will any more be created/queued) prints: "A: O idO: not enough H" and the process is finish
 
 Hydrogen process:
-	
+	1. Every hydrogen identify as idH, 0<idH<=NH
+	2. After startup, it prints: "A: H idH: started"
+	3. Wait via "usleep" command random time in <0,TI> interval
+        4. Prints: "A: H idH: going to queue" and join the line of hydrogens to forming molecule
+        5. In a moment, when no molecule is formed, oxygen and two hydrogens are released from the front.
+           The corresponding process will print: "A: H idH: creating molecule noM" (noM is a molecule number, these are numbered sequentially from 1)
+	6. After that, wait for message from oxygen, that forming molecule finished. 
+        8. Prints: "A: H idH: molecule noM created" and the process is finish
+        9. If not enough oxygen or hydrogen is already available (nor will any more be created/queued) prints: "A: H idH: not enough O or H" and the process is finish
+
