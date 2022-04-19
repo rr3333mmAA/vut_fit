@@ -1,0 +1,19 @@
+Main process:
+        1. Main process after startup creates NO oxygen process and NH hydrogen process
+        2. Wait for ending all of the processes
+        3. End main process with exit code 0
+
+Oxygen process:
+        1. Every oxygen identify as idO, 0<idO<=NO
+        2. After startup, it prints: "A: O idO: started"
+        3. Wait via "usleep" command random time in <0,TI> interval
+        4. Prints: "A: O idO: going to queue" and join the line of oxygens to forming molecule
+        5. In a moment, when no molecule is formed, oxygen and two hydrogens are released from the front.
+           The corresponding process will print: "A: O idO: creating molecule noM" (noM is a molecule number, these are numbered sequentially from 1)
+        6. Simulates forming molecule with random time in <0,TB> interval via "usleep" command
+        7. After forming molecule, it informs the hydrogens from the same molecule that the molecule is finished
+        8. Prints: "A: O idO: molecule noM created" and the process is finish
+        9. If not enough hydrogen is already available (nor will any more be created/queued) prints: "A: O idO: not enough H" and the process is finish
+
+Hydrogen process:
+	
